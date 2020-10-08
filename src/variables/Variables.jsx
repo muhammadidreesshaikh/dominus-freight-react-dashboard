@@ -245,7 +245,7 @@ var style = {
 // // // For tables
 // //
 //
-const thArray = ["ID", "Name", "Salary", "Country", "City"];
+const thArray = ["ID", "Trucking Company", "Pickup Location", "Dropoff Location", "Confirm Button", "Enable GPS"];
 const tdArray = [
   ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
   ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],

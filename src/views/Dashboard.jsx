@@ -38,7 +38,7 @@ class Dashboard extends Component {
             <Col lg={3} sm={6}>
               <StatsCard
                 bigIcon={<i className="pe-7s-server text-warning" />}
-                statsText="Capacity"
+                statsText="Drivers"
                 statsValue="105GB"
                 statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="Updated now"
@@ -46,26 +46,26 @@ class Dashboard extends Component {
             </Col>
             <Col lg={3} sm={6}>
               <StatsCard
-                bigIcon={<i className="pe-7s-wallet text-success" />}
-                statsText="Revenue"
+                bigIcon={<i className="pe-7s-server text-warning" />}
+                statsText="Trucking Company"
                 statsValue="$1,345"
                 statsIcon={<i className="fa fa-calendar-o" />}
-                statsIconText="Last day"
+                statsIconText="Updated now"
               />
             </Col>
             <Col lg={3} sm={6}>
               <StatsCard
-                bigIcon={<i className="pe-7s-graph1 text-danger" />}
-                statsText="Errors"
+                bigIcon={<i className="pe-7s-server text-warning" />}
+                statsText="Shippers"
                 statsValue="23"
                 statsIcon={<i className="fa fa-clock-o" />}
-                statsIconText="In the last hour"
+                statsIconText="Updated now"
               />
             </Col>
             <Col lg={3} sm={6}>
               <StatsCard
-                bigIcon={<i className="fa fa-twitter text-info" />}
-                statsText="Followers"
+                bigIcon={<i className="pe-7s-server text-warning" />}
+                statsText="Loads"
                 statsValue="+45"
                 statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="Updated now"

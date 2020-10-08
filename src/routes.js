@@ -1,5 +1,6 @@
 
 import Dashboard from "views/Dashboard.jsx";
+import Home from "views/Home.jsx";
 import UserProfile from "views/UserProfile.jsx";
 import TableList from "views/TableList.jsx";
 import Typography from "views/Typography.jsx";
@@ -14,6 +15,13 @@ const dashboardRoutes = [
     name: "Dashboard",
     icon: "pe-7s-graph",
     component: Dashboard,
+    layout: "/admin"
+  },
+  {
+    path: "/home",
+    name: "Home",
+    icon: "pe-7s-home",
+    component: Home,
     layout: "/admin"
   },
   {
