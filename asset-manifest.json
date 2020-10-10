@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/dominus-freight-react-dashboard/static/css/main.379f6e92.chunk.css",
+    "main.js": "/dominus-freight-react-dashboard/static/js/main.cf8f417c.chunk.js",
+    "main.js.map": "/dominus-freight-react-dashboard/static/js/main.cf8f417c.chunk.js.map",
+    "runtime~main.js": "/dominus-freight-react-dashboard/static/js/runtime~main.7c456273.js",
+    "runtime~main.js.map": "/dominus-freight-react-dashboard/static/js/runtime~main.7c456273.js.map",
+    "static/css/2.b7f966a4.chunk.css": "/dominus-freight-react-dashboard/static/css/2.b7f966a4.chunk.css",
+    "static/js/2.0eec19e4.chunk.js": "/dominus-freight-react-dashboard/static/js/2.0eec19e4.chunk.js",
+    "static/js/2.0eec19e4.chunk.js.map": "/dominus-freight-react-dashboard/static/js/2.0eec19e4.chunk.js.map",
+    "index.html": "/dominus-freight-react-dashboard/index.html",
+    "precache-manifest.c1a615807d96be597b3488d492c916a3.js": "/dominus-freight-react-dashboard/precache-manifest.c1a615807d96be597b3488d492c916a3.js",
+    "service-worker.js": "/dominus-freight-react-dashboard/service-worker.js",
+    "static/css/2.b7f966a4.chunk.css.map": "/dominus-freight-react-dashboard/static/css/2.b7f966a4.chunk.css.map",
+    "static/css/main.379f6e92.chunk.css.map": "/dominus-freight-react-dashboard/static/css/main.379f6e92.chunk.css.map",
+    "static/media/pe-icon-7-stroke.css": "/dominus-freight-react-dashboard/static/media/Pe-icon-7-stroke.c45f7de0.svg",
+    "static/media/face-3.jpg": "/dominus-freight-react-dashboard/static/media/face-3.ce7a6b79.jpg",
+    "static/media/bootstrap.min.css": "/dominus-freight-react-dashboard/static/media/glyphicons-halflings-regular.fa277232.woff",
+    "static/media/reactlogo.png": "/dominus-freight-react-dashboard/static/media/reactlogo.9b864b36.png",
+    "static/media/sidebar-1.jpg": "/dominus-freight-react-dashboard/static/media/sidebar-1.6be21e8a.jpg",
+    "static/media/sidebar-2.jpg": "/dominus-freight-react-dashboard/static/media/sidebar-2.7a4ce7cc.jpg",
+    "static/media/sidebar-3.jpg": "/dominus-freight-react-dashboard/static/media/sidebar-3.34535b95.jpg",
+    "static/media/sidebar-4.jpg": "/dominus-freight-react-dashboard/static/media/sidebar-4.7bc259fd.jpg"
+  }
+}
