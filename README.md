@@ -3,7 +3,7 @@ project dashboard built with reactjs
 
 # 👉 How to update your forked repo with our parent repo: 🔗
 ## set Upstream with Parent:
-> git remote add upstream https://github.com/muhammadawaisshaikh/dominus-freight-react-dashboard.git
+> git remote add upstream https://github.com/muhammadidreesshaikh/dominus-freight-react-dashboard.git
 
 ## Fetch Forked Repo
 > git fetch upstream
