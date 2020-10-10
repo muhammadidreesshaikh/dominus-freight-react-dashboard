@@ -74,21 +74,21 @@ class LoadDetails extends Component {
 
                           <a href="#" class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
-                              <h5 class="mb-1">Dropoff Location</h5>
+                              <h5 class="mb-1">Delivery Location</h5>
                               <small class="text-muted">Florida</small>
                             </div>
                           </a>
 
                           <a href="#" class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
-                              <h5 class="mb-1">Dropoff Time</h5>
+                              <h5 class="mb-1">Delivery Time</h5>
                               <small class="text-muted">05:00 PM</small>
                             </div>
                           </a>
 
                           <a href="#" class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
-                              <h5 class="mb-1">Dropoff Contact</h5>
+                              <h5 class="mb-1">Delivery Contact</h5>
                               <small class="text-muted">+92 333 7148980</small>
                             </div>
                           </a>
