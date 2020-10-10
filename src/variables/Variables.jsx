@@ -245,14 +245,14 @@ var style = {
 // // // For tables
 // //
 //
-const thArray = ["ID", "Trucking Company", "Pickup Location", "Dropoff Location", "Confirm Button", "Enable GPS"];
+const thArray = ["ID", "Shipper", "Trucking Company", "Driver", "Pickup Location", "Delivery Location"];
 const tdArray = [
-  ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-  ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-  ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-  ["4", "Philip Chaney", "$38,735", "Korea, South", "Overland Park"],
-  ["5", "Doris Greene", "$63,542", "Malawi", "Feldkirchen in Kärnten"],
-  ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
+  ["1", "Mexin", "DHL Co", "Allex", "Tempa", "Florida"],
+  ["2", "Yezy", "FedEx", "Michael", "New York", "Chicago"],
+  ["3", "John", "Ups Co", "Aeris", "Houston", "New York"],
+  ["4", "Kelin", "Blue Dart Co", "Adam", "Texas", "California"],
+  ["5", "Giovay", "Royal Mail Co", "Charlie", "Washington", "Indiana"],
+  ["6", "Irey", "Post NL Co", "Bella", "Georgia", "Oklahoma"],
 ];
 
 //

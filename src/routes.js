@@ -1,6 +1,8 @@
 
 import Dashboard from "views/Dashboard.jsx";
 import Home from "views/Home.jsx";
+import Loads from "views/Loads.jsx";
+import LoadDetails from "views/LoadDetails";
 import UserProfile from "views/UserProfile.jsx";
 import TableList from "views/TableList.jsx";
 import Typography from "views/Typography.jsx";
@@ -22,6 +24,20 @@ const dashboardRoutes = [
     name: "Home",
     icon: "pe-7s-home",
     component: Home,
+    layout: "/admin"
+  },
+  {
+    path: "/loads",
+    name: "Loads",
+    icon: "pe-7s-box2",
+    component: Loads,
+    layout: "/admin"
+  },
+  {
+    path: "/loaddetails",
+    name: "Load Details",
+    icon: "pe-7s-note2",
+    component: LoadDetails,
     layout: "/admin"
   },
   {
