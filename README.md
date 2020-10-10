@@ -13,3 +13,11 @@ project dashboard built with reactjs
 
 ## push the updated got changes with your repo/branch
 > git push origin main
+
+
+# Firebase
+> npm add firebase
+
+# Read and Write Data - Firebase CRUD
+> https://firebase.google.com/docs/database/web/read-and-write
+> https://dev.to/chensokheng/crud-operation-react-firebase-realtime-database-1bkn
