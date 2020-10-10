@@ -3,7 +3,7 @@ import { Grid, Row, Col, Table } from "react-bootstrap";
 
 import { thArray, tdArray } from "variables/Variables.jsx";
 
-class Home extends Component {
+class Loads extends Component {
   render() {
     return (
       <div className="content">
@@ -12,16 +12,13 @@ class Home extends Component {
 
             <Col md={12} className="pb-5">
               <Row>
-                <Col md={6} className="pt-5">
+                <Col md={6} className="pt-1">
                   <input type="search" class="form-control" placeholder="search any thing .." />
                 </Col>
-                <Col md={3} className="pt-2">
-                  <label> Start Date</label>
-                  <input type="date" class="form-control"/>
-                </Col>
-                <Col md={3} className="pt-2">
-                  <label> End Date</label>
-                  <input type="date" class="form-control"/>
+                <Col md={6} className="text-right">
+                    <button type="button" className="btn btn-success btn-fill">Active Loads</button>
+                    <button type="button" className="btn btn-primary mx-4 btn-fill">Upcoming Loads</button>
+                    <button type="button" className="btn btn-info btn-fill">Past Loads</button>
                 </Col>
               </Row>
             </Col>
@@ -55,4 +52,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Loads;

@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import { Grid, Row, Col, Table } from "react-bootstrap";
 
-import { thArray, tdArray } from "variables/Variables.jsx";
+const thArray = ["ID", "Company Name", "Company Email", "Company Phone", "Account Type"];
 
-class Home extends Component {
+const tdArray = [
+  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
+  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
+  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
+  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
+  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
+  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
+];
+
+class Loads extends Component {
   render() {
     return (
       <div className="content">
@@ -12,16 +21,11 @@ class Home extends Component {
 
             <Col md={12} className="pb-5">
               <Row>
-                <Col md={6} className="pt-5">
+                <Col md={6} className="pt-1">
                   <input type="search" class="form-control" placeholder="search any thing .." />
                 </Col>
-                <Col md={3} className="pt-2">
-                  <label> Start Date</label>
-                  <input type="date" class="form-control"/>
-                </Col>
-                <Col md={3} className="pt-2">
-                  <label> End Date</label>
-                  <input type="date" class="form-control"/>
+                <Col md={6} className="text-right">
+                    
                 </Col>
               </Row>
             </Col>
@@ -55,4 +59,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Loads;

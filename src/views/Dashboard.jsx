@@ -39,7 +39,7 @@ class Dashboard extends Component {
               <StatsCard
                 bigIcon={<i className="pe-7s-server text-warning" />}
                 statsText="Drivers"
-                statsValue="105GB"
+                statsValue="105"
                 statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="Updated now"
               />
@@ -48,7 +48,7 @@ class Dashboard extends Component {
               <StatsCard
                 bigIcon={<i className="pe-7s-server text-warning" />}
                 statsText="Trucking Company"
-                statsValue="$1,345"
+                statsValue="1,345"
                 statsIcon={<i className="fa fa-calendar-o" />}
                 statsIconText="Updated now"
               />
@@ -66,7 +66,7 @@ class Dashboard extends Component {
               <StatsCard
                 bigIcon={<i className="pe-7s-server text-warning" />}
                 statsText="Loads"
-                statsValue="+45"
+                statsValue="45"
                 statsIcon={<i className="fa fa-refresh" />}
                 statsIconText="Updated now"
               />
