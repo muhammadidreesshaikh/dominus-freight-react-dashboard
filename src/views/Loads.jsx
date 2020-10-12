@@ -9,8 +9,11 @@ class Loads extends Component {
     super(props);
 
     this.state = {
-      loads: []
+      loads: [],
+      itemsToUse: []
     }
+
+    this.searchChange = this.searchChange.bind(this);
   }
 
   componentDidMount() {
@@ -28,11 +31,31 @@ class Loads extends Component {
         tempLloads.push({ id, ...loads[id] });
       }
       this.setState({ loads: tempLloads });
+      this.setState({ itemsToUse: tempLloads });
 
       // console.log(this.state.loads);
     });
 
   };
+
+  searchChange = (event) => {
+    // console.log(event.target.value);
+
+    if (!event.target.value || event.target.value === " " || event.target.value === "") {
+      this.setState({ itemsToUse: [...this.state.loads] });
+    }
+    else {
+      let filtered = this.state.loads.filter(
+        item => 
+          item["trucking_company"].toLowerCase().includes(event.target.value.toLowerCase()) ||
+          item["driver"].toLowerCase().includes(event.target.value.toLowerCase()) ||
+          item["pickup_location"].toLowerCase().includes(event.target.value.toLowerCase()) ||
+          item["delivery_location"].toLowerCase().includes(event.target.value.toLowerCase())
+      )
+      this.setState({ itemsToUse: filtered });
+      // console.log(filtered);
+    }
+  }
 
   render() {
     return (
@@ -43,7 +66,7 @@ class Loads extends Component {
             <Col md={12} className="pb-5">
               <Row>
                 <Col md={6} className="pt-1">
-                  <input type="search" className="form-control" placeholder="search any thing .." />
+                  <input type="search" name="search" className="form-control" placeholder="search any thing .." onChange={(e) => {this.searchChange(e)} } />
                 </Col>
                 <Col md={6} className="text-right">
                     <button type="button" className="btn btn-success btn-fill">Active Loads</button>
@@ -69,7 +92,7 @@ class Loads extends Component {
                   </thead>
                   <tbody>
                     {
-                      this.state.loads.map((item, key) => {
+                      this.state.itemsToUse.map((item, key) => {
                         return (
                           <tr key={key}>
                             <td>{item.id}</td>
