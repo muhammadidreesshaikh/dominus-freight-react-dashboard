@@ -1,18 +1,62 @@
 import React, { Component } from "react";
+import firebase from '../core/firebase/firebase';
+
 import { Grid, Row, Col, Table } from "react-bootstrap";
 
-const thArray = ["ID", "Company Name", "Company Email", "Company Phone", "Account Type"];
+class Customers extends Component {
 
-const tdArray = [
-  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
-  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
-  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
-  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
-  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
-  ["1", "DHL Co", "dhl.co@email.com", "+923325654785", "Shipper"],
-];
+  constructor(props) {
+    super(props);
 
-class Loads extends Component {
+    this.state = {
+      loads: [],
+      itemsToUse: []
+    }
+
+    this.searchChange = this.searchChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.getLoads();
+  }
+
+  getLoads = () => {
+    let tempLcustomers = [];
+    const customersRef = firebase.ref('customers');
+
+    customersRef.on('value', (snapshot) => {
+      const customers = snapshot.val();
+
+      for (let id in customers) {
+        tempLcustomers.push({ id, ...customers[id] });
+      }
+      this.setState({ customers: tempLcustomers });
+      this.setState({ itemsToUse: tempLcustomers });
+
+      // console.log(this.state.customers);
+    });
+
+  };
+
+  searchChange = (event) => {
+    // console.log(event.target.value);
+
+    if (!event.target.value || event.target.value === " " || event.target.value === "") {
+      this.setState({ itemsToUse: [...this.state.customers] });
+    }
+    else {
+      let filtered = this.state.customers.filter(
+        item => 
+          item["company_name"].toLowerCase().includes(event.target.value.toLowerCase()) ||
+          item["company_email"].toLowerCase().includes(event.target.value.toLowerCase()) ||
+          item["company_phone"].toLowerCase().includes(event.target.value.toLowerCase()) ||
+          item["account_type"].toLowerCase().includes(event.target.value.toLowerCase())
+      )
+      this.setState({ itemsToUse: filtered });
+      // console.log(filtered);
+    }
+  }
+
   render() {
     return (
       <div className="content">
@@ -22,7 +66,7 @@ class Loads extends Component {
             <Col md={12} className="pb-5">
               <Row>
                 <Col md={6} className="pt-1">
-                  <input type="search" class="form-control" placeholder="search any thing .." />
+                  <input type="search" name="search" className="form-control" placeholder="search any thing .." onChange={(e) => {this.searchChange(e)} }/>
                 </Col>
                 <Col md={6} className="text-right">
                     
@@ -34,21 +78,27 @@ class Loads extends Component {
               <Table striped hover>
                 <thead>
                   <tr>
-                    {thArray.map((prop, key) => {
-                      return <th key={key}>{prop}</th>;
-                    })}
-                  </tr>
+                      <th>ID</th>
+                      <th>Company Name</th>
+                      <th>Company Email</th>
+                      <th>Company Phone</th>
+                      <th>Account Type</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  {tdArray.map((prop, key) => {
-                    return (
-                      <tr key={key}>
-                        {prop.map((prop, key) => {
-                          return <td key={key}>{prop}</td>;
-                        })}
-                      </tr>
-                    );
-                  })}
+                  {
+                    this.state.itemsToUse.map((item, key) => {
+                      return (
+                        <tr key={key}>
+                          <td>{item.id}</td>
+                          <td>{item.company_name}</td>
+                          <td>{item.company_email}</td>
+                          <td>{item.company_phone}</td>
+                          <td>{item.account_type}</td>
+                        </tr>
+                      )
+                    })
+                  }
                 </tbody>
               </Table>
             </Col>
@@ -59,4 +109,4 @@ class Loads extends Component {
   }
 }
 
-export default Loads;
+export default Customers;
