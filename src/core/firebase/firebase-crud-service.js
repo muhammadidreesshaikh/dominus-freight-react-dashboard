@@ -1,6 +1,6 @@
 import firebase from "../firebase/firebase";
 
-const db = firebase.ref("/loads");
+const db = firebase.database().ref("/loads");
 
 class FirebaseDataService{ 
   getAll() {

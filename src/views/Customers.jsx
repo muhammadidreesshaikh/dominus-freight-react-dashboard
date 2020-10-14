@@ -22,7 +22,7 @@ class Loads extends Component {
             <Col md={12} className="pb-5">
               <Row>
                 <Col md={6} className="pt-1">
-                  <input type="search" class="form-control" placeholder="search any thing .." />
+                  <input type="search" className="form-control" placeholder="search any thing .." />
                 </Col>
                 <Col md={6} className="text-right">
                     

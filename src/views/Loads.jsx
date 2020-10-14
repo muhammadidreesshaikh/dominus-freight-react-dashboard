@@ -22,7 +22,7 @@ class Loads extends Component {
 
   getLoads = () => {
     let tempLloads = [];
-    const loadRef = firebase.ref('loads');
+    const loadRef = firebase.database().ref('loads');
 
     loadRef.on('value', (snapshot) => {
       const loads = snapshot.val();

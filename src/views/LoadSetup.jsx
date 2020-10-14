@@ -28,7 +28,7 @@ class LoadSetup extends Component {
   }
 
   createLoad = () => {
-    const loadRef = firebase.ref('loads');
+    const loadRef = firebase.database().ref('loads');
   
     const load = {
       trucking_company: this.state.trucking_company,

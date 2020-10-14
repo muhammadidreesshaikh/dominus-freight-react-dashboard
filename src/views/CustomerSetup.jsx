@@ -20,25 +20,25 @@ class LoadSetup extends Component {
                     <form>
                         <div className="form-row">
                             <div className="form-group col-md-6">
-                                <label for="inputCity">Company Name</label>
+                                <label>Company Name</label>
                                 <input type="text" className="form-control"></input>
                             </div>
 
                             <div className="form-group col-md-6">
-                                <label for="inputCity">Company Email</label>
+                                <label>Company Email</label>
                                 <input type="text" className="form-control"></input>
                             </div>
                         </div>
 
                         <div className="form-row">
                             <div className="form-group col-md-6">
-                                <label for="inputCity">Company Phone</label>
+                                <label>Company Phone</label>
                                 <input type="text" className="form-control"></input>
                             </div>
 
                             <div className="form-group col-md-6">
-                              <label for="exampleFormControlSelect1">Account Type</label>
-                              <select class="form-control">
+                              <label>Account Type</label>
+                              <select className="form-control">
                                 <option>Driver</option>
                                 <option>Trucking Company</option>
                                 <option>Shipper</option>

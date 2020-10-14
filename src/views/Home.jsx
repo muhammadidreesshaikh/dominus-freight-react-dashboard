@@ -13,15 +13,15 @@ class Home extends Component {
             <Col md={12} className="pb-5">
               <Row>
                 <Col md={6} className="pt-5">
-                  <input type="search" class="form-control" placeholder="search any thing .." />
+                  <input type="search" className="form-control" placeholder="search any thing .." />
                 </Col>
                 <Col md={3} className="pt-2">
                   <label> Start Date</label>
-                  <input type="date" class="form-control"/>
+                  <input type="date" className="form-control"/>
                 </Col>
                 <Col md={3} className="pt-2">
                   <label> End Date</label>
-                  <input type="date" class="form-control"/>
+                  <input type="date" className="form-control"/>
                 </Col>
               </Row>
             </Col>
