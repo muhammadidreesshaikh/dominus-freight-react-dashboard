@@ -22,7 +22,7 @@ class CustomerSetup extends Component {
   }
 
   createCustomer = () => {
-    const customerRef = firebase.ref('customers');
+    const customerRef = firebase.database().ref('customers');
   
     const customer = {
       company_name: this.state.company_name,
