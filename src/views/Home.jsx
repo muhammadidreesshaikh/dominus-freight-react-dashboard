@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import firebase from '../core/firebase/firebase';
-import { Card, Grid, Row, Col, Table } from "react-bootstrap";
-
-import { thArray, tdArray } from "variables/Variables.jsx";
+import Authentication from '../core/services/authentication';
+import { Grid, Row, Col, Table } from "react-bootstrap";
 
 class Home extends Component {
 
@@ -10,6 +9,7 @@ class Home extends Component {
     super(props);
 
     this.state = {
+      user: Authentication.getUser(),
       loads: [],
       itemsToUse: []
     }

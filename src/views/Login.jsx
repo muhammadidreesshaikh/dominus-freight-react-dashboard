@@ -31,7 +31,7 @@ class Login extends Component {
             console.log(res);
 
             if (res.user.uid) {
-                localStorage.setItem('user', res.user.email);
+                localStorage.setItem('user', JSON.stringify(res.user));
                 window.location.href = '/admin/home';
             }
         })
