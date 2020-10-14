@@ -42,7 +42,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="content">
+      <div className="content login-form">
         <Grid fluid>
           <Row>
             <Col md={4}></Col>
