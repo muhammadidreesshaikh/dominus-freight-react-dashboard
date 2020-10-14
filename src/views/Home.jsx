@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from '../core/firebase/firebase';
-import { Grid, Row, Col, Table } from "react-bootstrap";
+import { Card, Grid, Row, Col, Table } from "react-bootstrap";
 
 import { thArray, tdArray } from "variables/Variables.jsx";
 
@@ -111,7 +111,13 @@ class Home extends Component {
                   </tbody>
                 </Table>
                 :
-                null
+                <Grid fluid>
+                  <Row>
+                    <Col md={12}>
+                      <p>Loading ...</p>
+                    </Col>
+                  </Row>
+                </Grid>
               }
             </Col>
           </Row>

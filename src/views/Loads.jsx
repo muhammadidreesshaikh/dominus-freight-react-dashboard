@@ -35,7 +35,6 @@ class Loads extends Component {
 
       // console.log(this.state.loads);
     });
-
   };
 
   searchChange = (event) => {
@@ -108,7 +107,13 @@ class Loads extends Component {
                   </tbody>
                 </Table>
                 :
-                null
+                <Grid fluid>
+                  <Row>
+                    <Col md={12}>
+                      <p>Loading ...</p>
+                    </Col>
+                  </Row>
+                </Grid>
               }
             </Col>
           </Row>
