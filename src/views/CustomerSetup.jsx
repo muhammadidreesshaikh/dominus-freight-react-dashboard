@@ -31,18 +31,31 @@ class CustomerSetup extends Component {
       account_type: this.state.account_type,
     };
     
+    // storing customer as a new record
     customerRef.push(customer, function(error) {
       if (error) {
-        alert("Data could not be saved." + error);
+        alert("Customer could not be created." + error);
       } else {
-        alert("Data saved successfully.");
+        alert("Customer Created successfully.");
       }
     });
     
+    this.signupForCustomer(this.state.company_email);
     this.props.history.push('/admin/customers');
-
-    // console.log(customer);
   };
+
+  // creating default account for customer
+  signupForCustomer = (email) => {
+    firebase.auth().createUserWithEmailAndPassword(email, '12345678')
+    .then(res => {
+        console.log(res);
+        if (res.additionalUserInfo.isNewUser == true) alert('Signup Suucessfull.');
+        else alert('Signup Failed!');
+    })
+    .catch(error => {
+        console.log(error);
+    })
+  }
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
