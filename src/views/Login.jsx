@@ -17,6 +17,7 @@ class Login extends Component {
         this.state = {
           email: '',
           password: '',
+          customer: ''
         }
     }
 
@@ -28,11 +29,16 @@ class Login extends Component {
     login = async() => {
         await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
         .then(res => {
-            console.log(res);
-
             if (res.user.uid) {
                 localStorage.setItem('user', JSON.stringify(res.user));
                 window.location.href = '/admin/home';
+
+                // const customerRef = firebase.database().ref('customers');
+
+                // customerRef.orderByChild("company_email").equalTo(res.user.email).on("child_added", (snap) => {
+                //   this.setState({ customer: snap.val() })
+                //   console.log(this.state.customer);
+                // });
             }
         })
         .catch(error => {
