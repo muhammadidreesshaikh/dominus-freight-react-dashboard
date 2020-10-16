@@ -47,7 +47,7 @@ const dashboardRoutes = [
     icon: "pe-7s-note2",
     component: LoadDetails,
     layout: "/admin",
-    display: true
+    display: false
   },
   {
     path: "/load-setup",

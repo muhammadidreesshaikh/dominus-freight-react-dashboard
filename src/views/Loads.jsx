@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from '../core/firebase/firebase';
-
+import { Link } from "react-router-dom";
 import { Grid, Row, Col, Table } from "react-bootstrap";
 
 class Loads extends Component {
@@ -87,19 +87,25 @@ class Loads extends Component {
                       <th>Driver</th>
                       <th>Pickup Location</th>
                       <th>Delivery Location</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {
                       this.state.itemsToUse.map((item, key) => {
                         return (
-                          <tr key={key}>
+                          <tr key={key} >
                             <td>{item.id}</td>
                             <td>{item.trucking_company}</td>
                             <td>{item.trucking_company}</td>
                             <td>{item.driver}</td>
                             <td>{item.pickup_location}</td>
                             <td>{item.delivery_location}</td>
+                            <td>
+                              <Link to={{ pathname: "/admin/load-details", data: item }}>
+                                View
+                              </Link>
+                            </td>
                           </tr>
                         )
                     })
