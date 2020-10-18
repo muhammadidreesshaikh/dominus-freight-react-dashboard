@@ -15,7 +15,8 @@ class LoadSetup extends Component {
     super(props);
 
     this.state = {
-      trucking_company: '',
+      carrier: '',
+      shipper: '',
       driver: '',
       pickup_location: '',
       pickup_date_time: '',
@@ -23,7 +24,8 @@ class LoadSetup extends Component {
       delivery_location: '',
       delivery_date_time: '',
       delivery_contact: '',
-      notes: '',
+      notes: 'Please remember to update your progress in the app.',
+      status: 'Load Created'
     }
   }
 
@@ -31,8 +33,9 @@ class LoadSetup extends Component {
     const loadRef = firebase.database().ref('loads');
   
     const load = {
-      trucking_company: this.state.trucking_company,
+      carrier: this.state.carrier,
       driver: this.state.driver,
+      shipper: this.state.shipper,
       pickup_location: this.state.pickup_location,
       pickup_date_time: this.state.pickup_date_time,
       pickup_contact: this.state.pickup_contact,
@@ -40,6 +43,7 @@ class LoadSetup extends Component {
       delivery_date_time: this.state.delivery_date_time,
       delivery_contact: this.state.delivery_contact,
       notes: this.state.notes,
+      status: 'Load Created'
     };
 
     loadRef.push(load, function(error) {
@@ -69,12 +73,17 @@ class LoadSetup extends Component {
                 content={
                     <form>
                         <div className="form-row">
-                            <div className="form-group col-md-6">
-                                <label>Trucking Company</label>
-                                <input type="text" name="trucking_company" className="form-control" value={this.state.trucking_company} onChange={(event) => this.handleChange(event)}></input>
+                            <div className="form-group col-md-4">
+                                <label>Carrier</label>
+                                <input type="text" name="carrier" className="form-control" value={this.state.carrier} onChange={(event) => this.handleChange(event)}></input>
                             </div>
 
-                            <div className="form-group col-md-6">
+                            <div className="form-group col-md-4">
+                                <label>Shipper</label>
+                                <input type="text" name="shipper" className="form-control" value={this.state.shipper} onChange={(event) => this.handleChange(event)}></input>
+                            </div>
+
+                            <div className="form-group col-md-4">
                                 <label>Driver</label>
                                 <input type="text" name="driver" className="form-control" value={this.state.driver} onChange={(event) => this.handleChange(event)}></input>
                             </div>

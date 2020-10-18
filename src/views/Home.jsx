@@ -87,7 +87,7 @@ class Home extends Component {
                     <tr>
                       <th>ID</th>
                       <th>Shipper</th>
-                      <th>Trucking Company</th>
+                      <th>Carrier</th>
                       <th>Driver</th>
                       <th>Pickup Location</th>
                       <th>Delivery Location</th>

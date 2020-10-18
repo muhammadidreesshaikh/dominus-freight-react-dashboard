@@ -14,10 +14,24 @@ class CustomerSetup extends Component {
     super(props);
 
     this.state = {
+      data: this.props.location.data,
       company_name: '',
+      company_contact: '',
       company_email: '',
       company_phone: '',
       account_type: '',
+    }
+  }
+
+  componentDidMount() {
+    if (this.state.data) {
+      this.setState({
+        company_name: this.state.data.company_name,
+        company_contact: this.state.data.company_contact,
+        company_email: this.state.data.company_email,
+        company_phone: this.state.data.company_phone,
+        account_type: this.state.data.account_type,
+      });
     }
   }
 
@@ -26,6 +40,7 @@ class CustomerSetup extends Component {
   
     const customer = {
       company_name: this.state.company_name,
+      company_contact: this.state.company_contact,
       company_email: this.state.company_email,
       company_phone: this.state.company_phone,
       account_type: this.state.account_type,
@@ -57,6 +72,24 @@ class CustomerSetup extends Component {
     })
   }
 
+  updateCustomer = () => {
+    firebase.database().ref('customers/' + this.state.data.id).set({
+      company_name: this.state.company_name,
+      company_contact: this.state.company_contact,
+      company_email: this.state.company_email,
+      company_phone: this.state.company_phone,
+      account_type: this.state.account_type,
+    }, function(error) {
+      if (error) {
+        // The write failed...
+      } else {
+        // The write Success...
+      }
+    });
+
+    this.props.history.push('/admin/customers');
+  }
+
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
     // console.log(this.state);
@@ -73,28 +106,33 @@ class CustomerSetup extends Component {
                 content={
                     <form>
                         <div className="form-row">
-                            <div className="form-group col-md-6">
-                                <label>Company Name</label>
+                            <div className="form-group col-md-4">
+                                <label>Name</label>
                                 <input type="text" name="company_name" className="form-control" value={this.state.company_name} onChange={(event) => this.handleChange(event)}></input>
                             </div>
 
-                            <div className="form-group col-md-6">
-                                <label>Company Email</label>
+                            <div className="form-group col-md-4">
+                                <label>Company Contact</label>
+                                <input type="text" name="company_contact" className="form-control" value={this.state.company_contact} onChange={(event) => this.handleChange(event)}></input>
+                            </div>
+
+                            <div className="form-group col-md-4">
+                                <label>Email</label>
                                 <input type="text" name="company_email" className="form-control" value={this.state.company_email} onChange={(event) => this.handleChange(event)}></input>
                             </div>
                         </div>
 
                         <div className="form-row">
                             <div className="form-group col-md-6">
-                                <label>Company Phone</label>
+                                <label>Phone</label>
                                 <input type="text" name="company_phone" className="form-control" value={this.state.company_phone} onChange={(event) => this.handleChange(event)}></input>
                             </div>
 
                             <div className="form-group col-md-6">
                               <label>Account Type</label>
-                              <select class="form-control" name="account_type" value={this.state.account_type} onChange={(event) => this.handleChange(event)}>
+                              <select className="form-control" name="account_type" value={this.state.account_type} onChange={(event) => this.handleChange(event)}>
                                 <option value="driver">Driver</option>
-                                <option value="trucking_company">Trucking Company</option>
+                                <option value="carrier">Carrier</option>
                                 <option value="shipper">Shipper</option>
                                 <option value="dominus">Dominus</option>
                               </select>
@@ -102,8 +140,12 @@ class CustomerSetup extends Component {
                         </div>
 
                         <div className="form-row px-4">
-                          <a onClick={() => this.createCustomer()} className="btn btn-primary btn-fill mr-3">Save</a>
-                          <a className="btn btn-success btn-fill">Update</a>
+                          {
+                            this.state.data ?
+                              <a className="btn btn-success btn-fill" onClick={ () => {this.updateCustomer()} }>Update</a>
+                            :
+                            <a onClick={() => this.createCustomer()} className="btn btn-primary btn-fill mr-3">Save</a>
+                          }
                         </div>
                   </form>
                 }

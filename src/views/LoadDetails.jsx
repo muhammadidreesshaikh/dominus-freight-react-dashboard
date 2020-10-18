@@ -13,7 +13,7 @@ class LoadDetails extends Component {
   }
 
   componentDidMount() {
-
+    console.log(this.state.data);
   }
 
   render() {
@@ -45,14 +45,14 @@ class LoadDetails extends Component {
                           <div className="list-group">
                             <a href="#" className="list-group-item list-group-item-action">
                               <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Shipper ID</h5>
+                                <h5 className="mb-1">Shipper</h5>
                                 <small>{this.state.data.id}</small>
                               </div>
                             </a>
 
                             <a href="#" className="list-group-item list-group-item-action">
                               <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Trucking Company</h5>
+                                <h5 className="mb-1">Carrier</h5>
                                 <small className="text-muted">{this.state.data.trucking_company}</small>
                               </div>
                             </a>
@@ -110,6 +110,13 @@ class LoadDetails extends Component {
                               <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Notes</h5>
                                 <small className="text-muted">{this.state.data.notes}</small>
+                              </div>
+                            </a>
+
+                            <a href="#" className="list-group-item list-group-item-action">
+                              <div className="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Status</h5>
+                                <small className="text-muted">{this.state.data.status}</small>
                               </div>
                             </a>
                           </div>

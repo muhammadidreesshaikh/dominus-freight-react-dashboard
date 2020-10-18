@@ -20,6 +20,7 @@ project dashboard built with reactjs
 
 # Read and Write Data - Firebase CRUD
 > https://firebase.google.com/docs/database/web/read-and-write
+> https://firebase.google.com/docs/database/web/read-and-write
 > https://dev.to/chensokheng/crud-operation-react-firebase-realtime-database-1bkn
 
 # Device Geolocation in Reactjs

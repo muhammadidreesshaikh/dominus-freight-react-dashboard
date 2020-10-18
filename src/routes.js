@@ -25,14 +25,14 @@ const dashboardRoutes = [
   //   component: Dashboard,
   //   layout: "/admin"
   // },
-  {
-    path: "/home",
-    name: "Home",
-    icon: "pe-7s-home",
-    component: Home,
-    layout: "/admin",
-    display: true
-  },
+  // {
+  //   path: "/home",
+  //   name: "Home",
+  //   icon: "pe-7s-home",
+  //   component: Home,
+  //   layout: "/admin",
+  //   display: true
+  // },
   {
     path: "/loads",
     name: "Loads",

@@ -245,7 +245,7 @@ var style = {
 // // // For tables
 // //
 //
-const thArray = ["ID", "Shipper", "Trucking Company", "Driver", "Pickup Location", "Delivery Location"];
+const thArray = ["ID", "Shipper", "Carrier", "Driver", "Pickup Location", "Delivery Location"];
 const tdArray = [
   ["1", "Mexin", "DHL Co", "Allex", "Tempa", "Florida"],
   ["2", "Yezy", "FedEx", "Michael", "New York", "Chicago"],

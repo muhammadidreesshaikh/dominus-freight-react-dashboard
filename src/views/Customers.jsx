@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import firebase from '../core/firebase/firebase';
 
 import { Grid, Row, Col, Table } from "react-bootstrap";
@@ -79,10 +80,12 @@ class Customers extends Component {
                 <thead>
                   <tr>
                       <th>ID</th>
-                      <th>Company Name</th>
-                      <th>Company Email</th>
-                      <th>Company Phone</th>
+                      <th>Name</th>
+                      <th>Contact</th>
+                      <th>Email</th>
+                      <th>Phone</th>
                       <th>Account Type</th>
+                      <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -92,9 +95,15 @@ class Customers extends Component {
                         <tr key={key}>
                           <td>{item.id}</td>
                           <td>{item.company_name}</td>
+                          <td>{item.company_contact}</td>
                           <td>{item.company_email}</td>
                           <td>{item.company_phone}</td>
                           <td>{item.account_type}</td>
+                          <td>
+                            <Link to={{ pathname: "/admin/customer-setup", data: item }}>
+                              Edit
+                            </Link>
+                          </td>
                         </tr>
                       )
                     })

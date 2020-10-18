@@ -47,7 +47,7 @@ class Dashboard extends Component {
             <Col lg={3} sm={6}>
               <StatsCard
                 bigIcon={<i className="pe-7s-server text-warning" />}
-                statsText="Trucking Company"
+                statsText="Carrier"
                 statsValue="1,345"
                 statsIcon={<i className="fa fa-calendar-o" />}
                 statsIconText="Updated now"
