@@ -102,7 +102,7 @@ class CustomerSetup extends Component {
           <Row>
             <Col md={12}>
               <Card
-                title="Create New Customer"
+                title={this.state.data ? 'Edit Customer' : 'Create New Customer'}
                 content={
                     <form>
                         <div className="form-row">
