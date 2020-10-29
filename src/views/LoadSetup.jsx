@@ -25,7 +25,8 @@ class LoadSetup extends Component {
       delivery_date_time: '',
       delivery_contact: '',
       notes: 'Please remember to update your progress in the app.',
-      status: 'Load Created'
+      status: 'Load Created',
+      load_type: 'active'
     }
   }
 
@@ -43,7 +44,8 @@ class LoadSetup extends Component {
       delivery_date_time: this.state.delivery_date_time,
       delivery_contact: this.state.delivery_contact,
       notes: this.state.notes,
-      status: 'Load Created'
+      status: 'Load Created',
+      load_type: 'active'
     };
 
     loadRef.push(load, function(error) {
