@@ -33,7 +33,7 @@ class Loads extends Component {
       this.setState({ loads: tempLloads });
       this.setState({ itemsToUse: tempLloads });
 
-      // console.log(this.state.loads);
+      console.log(this.state.loads);
     });
   };
 
@@ -106,9 +106,9 @@ class Loads extends Component {
                         return (
                           <tr key={key} >
                             <td>{item.id}</td>
-                            <td>{item.shipper}</td>
-                            <td>{item.carrier}</td>
-                            <td>{item.driver}</td>
+                            <td>{JSON.parse(item.shipper).company_name}</td>
+                            <td>{JSON.parse(item.driver).carrier}</td>
+                            <td>{JSON.parse(item.driver).company_name}</td>
                             <td>{item.pickup_location}</td>
                             <td>{item.delivery_location}</td>
                             <td>{item.status}</td>

@@ -45,7 +45,7 @@ class LoadDetails extends Component {
                           <div className="list-group">
                             <a href="#" className="list-group-item list-group-item-action">
                               <div className="d-flex w-100 justify-content-between">
-                                <h5 className="mb-1">Shipper</h5>
+                                <h5 className="mb-1">Load ID</h5>
                                 <small>{this.state.data.id}</small>
                               </div>
                             </a>
@@ -53,14 +53,21 @@ class LoadDetails extends Component {
                             <a href="#" className="list-group-item list-group-item-action">
                               <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Carrier</h5>
-                                <small className="text-muted">{this.state.data.trucking_company}</small>
+                                <small className="text-muted">{JSON.parse(this.state.data.carrier).company_name}</small>
                               </div>
                             </a>
 
                             <a href="#" className="list-group-item list-group-item-action">
                               <div className="d-flex w-100 justify-content-between">
                                 <h5 className="mb-1">Driver</h5>
-                                <small className="text-muted">{this.state.data.driver}</small>
+                                <small className="text-muted">{JSON.parse(this.state.data.driver).company_name}</small>
+                              </div>
+                            </a>
+
+                            <a href="#" className="list-group-item list-group-item-action">
+                              <div className="d-flex w-100 justify-content-between">
+                                <h5 className="mb-1">Shipper</h5>
+                                <small className="text-muted">{JSON.parse(this.state.data.shipper).company_name}</small>
                               </div>
                             </a>
 
