@@ -12,8 +12,6 @@ class Loads extends Component {
       loads: [],
       itemsToUse: []
     }
-
-    this.searchChange = this.searchChange.bind(this);
   }
 
   componentDidMount() {
@@ -38,22 +36,7 @@ class Loads extends Component {
   };
 
   searchChange = (event) => {
-    // console.log(event.target.value);
-
-    if (!event.target.value || event.target.value === " " || event.target.value === "") {
-      this.setState({ itemsToUse: [...this.state.loads] });
-    }
-    else {
-      let filtered = this.state.loads.filter(
-        item => 
-          item["trucking_company"].toLowerCase().includes(event.target.value.toLowerCase()) ||
-          item["driver"].toLowerCase().includes(event.target.value.toLowerCase()) ||
-          item["pickup_location"].toLowerCase().includes(event.target.value.toLowerCase()) ||
-          item["delivery_location"].toLowerCase().includes(event.target.value.toLowerCase())
-      )
-      this.setState({ itemsToUse: filtered });
-      // console.log(filtered);
-    }
+    console.log(event.target.value);
   }
 
   render() {
