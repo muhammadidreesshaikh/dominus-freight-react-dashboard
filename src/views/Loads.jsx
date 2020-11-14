@@ -106,15 +106,18 @@ class Loads extends Component {
                         return (
                           <tr key={key} >
                             <td>{item.id}</td>
-                            <td>{JSON.parse(item.shipper).company_name}</td>
-                            <td>{JSON.parse(item.driver).carrier}</td>
-                            <td>{JSON.parse(item.driver).company_name}</td>
-                            <td>{item.pickup_location}</td>
-                            <td>{item.delivery_location}</td>
-                            <td>{item.status}</td>
+                            <td className="text-capitalize">{JSON.parse(item.shipper).company_name}</td>
+                            <td className="text-capitalize">{JSON.parse(item.carrier).company_name}</td>
+                            <td className="text-capitalize">{JSON.parse(item.driver).company_name}</td>
+                            <td className="text-capitalize">{item.pickup_location}</td>
+                            <td className="text-capitalize">{item.delivery_location}</td>
+                            <td className="text-capitalize">{item.status}</td>
                             <td>
-                              <Link to={{ pathname: "/admin/load-details", data: item }}>
+                              <Link className="mr-3 btn btn-primary btn-fill px-3 py-2" to={{ pathname: "/admin/load-details", data: item }}>
                                 View
+                              </Link>
+                              <Link className="btn btn-success btn-fill px-3 py-2" to={{ pathname: "/admin/load-edit", data: item }}>
+                                Edit
                               </Link>
                             </td>
                           </tr>

@@ -3,6 +3,7 @@ import Home from "views/Home.jsx";
 import Loads from "views/Loads.jsx";
 import LoadDetails from "views/LoadDetails";
 import LoadSetup from "views/LoadSetup";
+import LoadEdit from "views/LoadEdit";
 import CustomerSetup from "views/CustomerSetup";
 import Customers from "views/Customers";
 import Login from "views/Login";
@@ -56,6 +57,14 @@ const dashboardRoutes = [
     component: LoadSetup,
     layout: "/admin",
     display: true
+  },
+  {
+    path: "/load-edit",
+    name: "Load Edit",
+    icon: "pe-7s-box2",
+    component: LoadEdit,
+    layout: "/admin",
+    display: false
   },
   {
     path: "/customers",
