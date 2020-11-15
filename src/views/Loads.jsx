@@ -12,7 +12,8 @@ class Loads extends Component {
     this.state = {
       loads: [],
       itemsToUse: [],
-      search: ''
+      search: '',
+      typeFilter: ''
     }
   }
 
@@ -42,6 +43,25 @@ class Loads extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  filterByType = (value) => {
+    let filtered = [];
+
+    this.setState({ typeFilter: value });
+    console.log(this.state.typeFilter);
+
+    if (value == '' || value == 'all') {
+      this.setState({ itemsToUse: this.state.loads });
+    }
+    if (value == 'past') {
+      filtered = this.state.itemsToUse.filter(item => item.load_type == 'past');
+      this.setState({ itemsToUse: filtered });
+    }
+    if (value == 'active') {
+      filtered = this.state.itemsToUse.filter(item => item.load_type == 'active');
+      this.setState({ itemsToUse: filtered });
+    }
+  }
+
   render() {
     return (
       <div className="content">
@@ -49,7 +69,7 @@ class Loads extends Component {
           <Row>
             <Col md={12} className="pb-5">
               <Row>
-                <Col md={4} className="pt-1">
+                <Col md={3} className="pt-1">
                   <label>Search</label>
                   <input type="search" name="search" className="form-control" placeholder="search any thing .." onChange={(e) => {this.searchChange(e)} } />
                 </Col>
@@ -61,10 +81,12 @@ class Loads extends Component {
                   <label> End Date</label>
                   <input type="date" className="form-control"/>
                 </Col>
-                <Col md={4} className="text-right">
-                    <button type="button" className="btn btn-success btn-fill">Active Loads</button>
-                    <button type="button" className="btn btn-primary mx-4 btn-fill">Upcoming Loads</button>
-                    <button type="button" className="btn btn-info btn-fill">Past Loads</button>
+                <Col md={5} className="text-right">
+                    <p>Filter By Type</p>
+                    <a onClick={() => { this.filterByType('all') }} className="btn btn-primary btn-fill mr-4">All Loads</a>
+                    <a onClick={() => { this.filterByType('active') }} className="btn btn-success btn-fill">Active Loads</a>
+                    <a onClick={() => { this.filterByType('upcoming') }} className="btn btn-warning mx-4 btn-fill">Upcoming Loads</a>
+                    <a onClick={() => { this.filterByType('past') }} className="btn btn-info btn-fill">Past Loads</a>
                 </Col>
               </Row>
             </Col>
@@ -88,7 +110,7 @@ class Loads extends Component {
                   <tbody>
                     <FilterResults
                       value={this.state.search}
-                      data={this.state.loads}
+                      data={this.state.itemsToUse}
                       renderResults={results => (
                         results.map((item, key) => (
                           <tr key={key} >
