@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import firebase from '../core/firebase/firebase';
 import { Link } from "react-router-dom";
 import { Grid, Row, Col, Table } from "react-bootstrap";
+import FilterResults from 'react-filter-search';
 
 class Loads extends Component {
 
@@ -10,7 +11,8 @@ class Loads extends Component {
 
     this.state = {
       loads: [],
-      itemsToUse: []
+      itemsToUse: [],
+      search: ''
     }
   }
 
@@ -37,6 +39,7 @@ class Loads extends Component {
 
   searchChange = (event) => {
     console.log(event.target.value);
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
@@ -44,7 +47,6 @@ class Loads extends Component {
       <div className="content">
         <Grid fluid>
           <Row>
-
             <Col md={12} className="pb-5">
               <Row>
                 <Col md={4} className="pt-1">
@@ -84,9 +86,11 @@ class Loads extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {
-                      this.state.itemsToUse.map((item, key) => {
-                        return (
+                    <FilterResults
+                      value={this.state.search}
+                      data={this.state.loads}
+                      renderResults={results => (
+                        results.map((item, key) => (
                           <tr key={key} >
                             <td>{item.id}</td>
                             <td className="text-capitalize">{JSON.parse(item.shipper).company_name}</td>
@@ -104,9 +108,9 @@ class Loads extends Component {
                               </Link>
                             </td>
                           </tr>
-                        )
-                    })
-                    }
+                        ))
+                      )}
+                    />
                   </tbody>
                 </Table>
                 :

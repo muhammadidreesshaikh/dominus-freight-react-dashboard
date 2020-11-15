@@ -25,3 +25,6 @@ project dashboard built with reactjs
 
 # Device Geolocation in Reactjs
 > https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
+
+# ReactJS Table Filter Search - react-filter-search
+https://www.npmjs.com/package/react-filter-search
