@@ -1244,3 +1244,16 @@
   object-fit: cover;
   margin-top: 72px;
 }
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.block-margin-auto {
+  display: block;
+  margin: auto;
+}
+
+.login-form {
+  padding: 10% 0;
+}

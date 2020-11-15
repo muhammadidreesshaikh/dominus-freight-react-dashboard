@@ -1,11 +1,15 @@
 
-import Dashboard from "views/Dashboard.jsx";
 import Home from "views/Home.jsx";
 import Loads from "views/Loads.jsx";
 import LoadDetails from "views/LoadDetails";
 import LoadSetup from "views/LoadSetup";
+import LoadEdit from "views/LoadEdit";
 import CustomerSetup from "views/CustomerSetup";
 import Customers from "views/Customers";
+import Login from "views/Login";
+import Signup from "views/Signup";
+
+import Dashboard from "views/Dashboard.jsx";
 import UserProfile from "views/UserProfile.jsx";
 import TableList from "views/TableList.jsx";
 import Typography from "views/Typography.jsx";
@@ -22,47 +26,77 @@ const dashboardRoutes = [
   //   component: Dashboard,
   //   layout: "/admin"
   // },
-  {
-    path: "/home",
-    name: "Home",
-    icon: "pe-7s-home",
-    component: Home,
-    layout: "/admin"
-  },
+  // {
+  //   path: "/home",
+  //   name: "Home",
+  //   icon: "pe-7s-home",
+  //   component: Home,
+  //   layout: "/admin",
+  //   display: true
+  // },
   {
     path: "/loads",
     name: "Loads",
     icon: "pe-7s-server",
     component: Loads,
-    layout: "/admin"
+    layout: "/admin",
+    display: true
   },
   {
     path: "/load-details",
     name: "Load Details",
     icon: "pe-7s-note2",
     component: LoadDetails,
-    layout: "/admin"
+    layout: "/admin",
+    display: false
   },
   {
     path: "/load-setup",
     name: "Load Setup",
     icon: "pe-7s-box2",
     component: LoadSetup,
-    layout: "/admin"
+    layout: "/admin",
+    display: true
+  },
+  {
+    path: "/load-edit",
+    name: "Load Edit",
+    icon: "pe-7s-box2",
+    component: LoadEdit,
+    layout: "/admin",
+    display: false
   },
   {
     path: "/customers",
     name: "Customers",
     icon: "pe-7s-server",
     component: Customers,
-    layout: "/admin"
+    layout: "/admin",
+    display: true
   },
   {
     path: "/customer-setup",
     name: "Customer Setup",
     icon: "pe-7s-user",
     component: CustomerSetup,
-    layout: "/admin"
+    layout: "/admin",
+    display: true
+  },
+  {
+    path: "/login",
+    name: "Login",
+    icon: "pe-7s-user",
+    component: Login,
+    layout: "/admin",
+    display: false
+  },
+  {
+    path: "/signup",
+    name: "Signup",
+    icon: "pe-7s-user",
+    component: Signup,
+    layout: "/admin",
+    display: false
   },
   // {
   //   path: "/user",

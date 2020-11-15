@@ -17,12 +17,14 @@ class Admin extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loginStatus: false,
       _notificationSystem: null,
       image: image,
       color: "black",
       hasImage: true,
       fixedClasses: "dropdown"
     };
+    // this.checkLogin();
   }
   
   getRoutes = routes => {
@@ -58,15 +60,19 @@ class Admin extends Component {
     }
     return "Brand";
   };
+  
   handleImageClick = image => {
     this.setState({ image: image });
   };
+
   handleColorClick = color => {
     this.setState({ color: color });
   };
+
   handleHasImage = hasImage => {
     this.setState({ hasImage: hasImage });
   };
+
   handleFixedClick = () => {
     if (this.state.fixedClasses === "dropdown") {
       this.setState({ fixedClasses: "dropdown show-dropdown open" });
@@ -76,51 +82,60 @@ class Admin extends Component {
   };
 
   componentDidMount() {
-    
+    this.checkLogin();
   }
 
-  componentDidUpdate(e) {
-    if (
-      window.innerWidth < 993 &&
-      e.history.location.pathname !== e.location.pathname &&
-      document.documentElement.className.indexOf("nav-open") !== -1
-    ) {
-      document.documentElement.classList.toggle("nav-open");
+  checkLogin = () => {
+    const status = localStorage.getItem('user');
+
+    if (status) {
+      this.setState({ loginStatus: true });
     }
-    if (e.history.action === "PUSH") {
-      document.documentElement.scrollTop = 0;
-      document.scrollingElement.scrollTop = 0;
-      this.refs.mainPanel.scrollTop = 0;
+    else {
+      this.setState({ loginStatus: false });
     }
+
+    console.log("loginStatus >>> ", this.state.loginStatus);
   }
+
   render() {
     return (
       <div className="wrapper">
+        
+        {
+          this.state.loginStatus ?
+          <div>
+            <Sidebar {...this.props} routes={routes} image={this.state.image}
+              color={this.state.color}
+              hasImage={this.state.hasImage}
+            />
 
-        <Sidebar {...this.props} routes={routes} image={this.state.image}
-          color={this.state.color}
-          hasImage={this.state.hasImage}
-        />
+            <div id="main-panel" className="main-panel" ref="mainPanel">
+              <AdminNavbar
+                {...this.props}
+                brandText={this.getBrandText(this.props.location.pathname)}
+              />
 
-        <div id="main-panel" className="main-panel" ref="mainPanel">
-          <AdminNavbar
-            {...this.props}
-            brandText={this.getBrandText(this.props.location.pathname)}
-          />
+              <Switch>{this.getRoutes(routes)}</Switch>
+
+              <Footer />
+
+              <FixedPlugin
+                handleImageClick={this.handleImageClick}
+                handleColorClick={this.handleColorClick}
+                handleHasImage={this.handleHasImage}
+                bgColor={this.state["color"]}
+                bgImage={this.state["image"]}
+                mini={this.state["mini"]}
+                handleFixedClick={this.handleFixedClick}
+                fixedClasses={this.state.fixedClasses}
+              />
+            </div>
+          </div>
+          :
           <Switch>{this.getRoutes(routes)}</Switch>
-          <Footer />
-
-          <FixedPlugin
-            handleImageClick={this.handleImageClick}
-            handleColorClick={this.handleColorClick}
-            handleHasImage={this.handleHasImage}
-            bgColor={this.state["color"]}
-            bgImage={this.state["image"]}
-            mini={this.state["mini"]}
-            handleFixedClick={this.handleFixedClick}
-            fixedClasses={this.state.fixedClasses}
-          />
-        </div>
+        }
+        
       </div>
     );
   }

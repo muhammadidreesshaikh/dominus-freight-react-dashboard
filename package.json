@@ -12,6 +12,7 @@
     "react-bootstrap": "0.32.4",
     "react-chartist": "0.13.3",
     "react-dom": "16.8.6",
+    "react-filter-search": "^1.0.11",
     "react-google-maps": "9.4.5",
     "react-notification-system": "0.2.17",
     "react-router": "5.0.0",

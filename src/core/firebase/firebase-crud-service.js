@@ -1,10 +1,16 @@
 import firebase from "../firebase/firebase";
 
-const db = firebase.ref("/loads");
+const db = firebase.database().ref("/loads");
 
 class FirebaseDataService{ 
   getAll() {
     return db;
+  }
+
+  getOnly(email) {
+    db.orderByChild("email").equalTo(email).on("child_added", (snap) => {
+      return snap.val();
+    });
   }
 
   create(tutorial) {

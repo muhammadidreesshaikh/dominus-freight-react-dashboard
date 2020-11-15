@@ -15,7 +15,11 @@ class LoadSetup extends Component {
     super(props);
 
     this.state = {
-      trucking_company: '',
+      shippers: [],
+      drivers: [],
+      carriers: [],
+      carrier: '',
+      shipper: '',
       driver: '',
       pickup_location: '',
       pickup_date_time: '',
@@ -23,16 +27,24 @@ class LoadSetup extends Component {
       delivery_location: '',
       delivery_date_time: '',
       delivery_contact: '',
-      notes: '',
+      notes: 'Please remember to update your progress in the app.',
+      status: 'Load Created',
+      load_type: 'active',
+      confirmation: false
     }
   }
 
+  componentDidMount() {
+    this.getShippersNDrivers();
+  }
+
   createLoad = () => {
-    const loadRef = firebase.ref('loads');
+    const loadRef = firebase.database().ref('loads');
   
     const load = {
-      trucking_company: this.state.trucking_company,
+      carrier: this.state.carrier,
       driver: this.state.driver,
+      shipper: this.state.shipper,
       pickup_location: this.state.pickup_location,
       pickup_date_time: this.state.pickup_date_time,
       pickup_contact: this.state.pickup_contact,
@@ -40,6 +52,9 @@ class LoadSetup extends Component {
       delivery_date_time: this.state.delivery_date_time,
       delivery_contact: this.state.delivery_contact,
       notes: this.state.notes,
+      status: 'Load Created',
+      load_type: 'active',
+      confirmation: false
     };
 
     loadRef.push(load, function(error) {
@@ -51,11 +66,37 @@ class LoadSetup extends Component {
     });
 
     this.props.history.push('/admin/loads');
+
+    console.log(load);
   };
   
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-    // console.log(this.state);
+    console.log(this.state);
+  }
+
+  getShippersNDrivers = () => {
+    let tempCustomers = [];
+
+    const customersRef = firebase.database().ref('customers');
+
+    customersRef.on('value', (snapshot) => {
+    const customers = snapshot.val();
+
+    for (let id in customers) {
+      tempCustomers.push({ id, ...customers[id] });
+    }
+
+    let shippers = tempCustomers.filter(item => item.account_type == 'shipper' );
+    let drivers = tempCustomers.filter(item => item.account_type == 'driver' );
+    let carriers = tempCustomers.filter(item => item.account_type == 'carrier' );
+
+    this.setState({ shippers: shippers });
+    this.setState({ drivers: drivers });
+    this.setState({ carriers: carriers });
+
+    // console.log(this.state.shippers);
+    });
   }
 
   render() {
@@ -69,14 +110,46 @@ class LoadSetup extends Component {
                 content={
                     <form>
                         <div className="form-row">
-                            <div className="form-group col-md-6">
-                                <label>Trucking Company</label>
-                                <input type="text" name="trucking_company" className="form-control" value={this.state.trucking_company} onChange={(event) => this.handleChange(event)}></input>
+                            <div className="form-group col-md-4">
+                                <label>Carrier</label>
+                                <select name="carrier" className="form-control" value={this.state.carrier} onChange={(event) => this.handleChange(event)}>
+                                  <option value="0">Select Carrier</option>
+                                  {
+                                    this.state.carriers.map((item, index) => {
+                                      return (
+                                        <option key={index} value={JSON.stringify(item)}>{item.company_name}</option>
+                                      )
+                                    })
+                                  }
+                                </select>
                             </div>
 
-                            <div className="form-group col-md-6">
+                            <div className="form-group col-md-4">
+                                <label>Shipper</label>
+                                <select name="shipper" className="form-control" value={this.state.shipper} onChange={(event) => this.handleChange(event)}>
+                                  <option value="0">Select Shipper</option>
+                                  {
+                                    this.state.shippers.map((item, index) => {
+                                      return (
+                                        <option key={index} value={JSON.stringify(item)}>{item.company_name}</option>
+                                      )
+                                    })
+                                  }
+                                </select>
+                            </div>
+
+                            <div className="form-group col-md-4">
                                 <label>Driver</label>
-                                <input type="text" name="driver" className="form-control" value={this.state.driver} onChange={(event) => this.handleChange(event)}></input>
+                                <select name="driver" className="form-control" value={this.state.driver} onChange={(event) => this.handleChange(event)}>
+                                  <option value="0">Select Driver</option>
+                                  {
+                                    this.state.drivers.map((item, index) => {
+                                      return (
+                                        <option key={index} value={JSON.stringify(item)}>{item.company_name}</option>
+                                      )
+                                    })
+                                  }
+                                </select>
                             </div>
                         </div>
 

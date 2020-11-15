@@ -1,7 +1,30 @@
 import React, { Component } from "react";
+import firebase from '../../core/firebase/firebase';
 import { NavItem, Nav, NavDropdown, MenuItem } from "react-bootstrap";
 
 class AdminNavbarLinks extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      logout: '',
+    }
+
+  }
+
+  logout = () => {
+    firebase.auth().signOut().then(res => {
+      console.log(res);
+      localStorage.clear();
+      window.location.href = '/admin/login';
+    })
+    .catch(error => {
+      console.log(error);
+    });
+    
+  }
+
   render() {
     const notification = (
       <div>
@@ -11,6 +34,7 @@ class AdminNavbarLinks extends Component {
         <p className="hidden-lg hidden-md">Notification</p>
       </div>
     );
+
     return (
       <div>
         <Nav pullRight>
@@ -32,7 +56,7 @@ class AdminNavbarLinks extends Component {
             <MenuItem eventKey={2.5}>Another notifications</MenuItem>
           </NavDropdown>
 
-          <NavItem eventKey={3} href="#">
+          <NavItem eventKey={3} onClick={() => this.logout()}>
             <i className="fa fa-sign-out mr-2" />
             Log out
           </NavItem>
